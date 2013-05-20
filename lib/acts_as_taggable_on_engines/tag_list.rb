@@ -1,6 +1,6 @@
 require 'active_support/core_ext/module/delegation'
 
-module ActsAsTaggableOnEnginesEngine
+module ActsAsTaggableOnEngines
   class TagList < Array
     attr_accessor :owner
 

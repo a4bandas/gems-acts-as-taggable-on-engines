@@ -6,7 +6,7 @@ require "digest/sha1"
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
-module ActsAsTaggableOn
+module ActsAsTaggableOnEngines
   mattr_accessor :delimiter
   @@delimiter = ','
 
@@ -33,33 +33,33 @@ module ActsAsTaggableOn
 end
 
 
-require "acts_as_taggable_on/utils"
+require "acts_as_taggable_on_engines/utils"
 
-require "acts_as_taggable_on/taggable"
-require "acts_as_taggable_on/acts_as_taggable_on/compatibility"
-require "acts_as_taggable_on/acts_as_taggable_on/core"
-require "acts_as_taggable_on/acts_as_taggable_on/collection"
-require "acts_as_taggable_on/acts_as_taggable_on/cache"
-require "acts_as_taggable_on/acts_as_taggable_on/ownership"
-require "acts_as_taggable_on/acts_as_taggable_on/related"
-require "acts_as_taggable_on/acts_as_taggable_on/dirty"
+require "acts_as_taggable_on_engines/taggable"
+require "acts_as_taggable_on_engines/acts_as_taggable_on_engines/compatibility"
+require "acts_as_taggable_on_engines/acts_as_taggable_on_engines/core"
+require "acts_as_taggable_on_engines/acts_as_taggable_on_engines/collection"
+require "acts_as_taggable_on_engines/acts_as_taggable_on_engines/cache"
+require "acts_as_taggable_on_engines/acts_as_taggable_on_engines/ownership"
+require "acts_as_taggable_on_engines/acts_as_taggable_on_engines/related"
+require "acts_as_taggable_on_engines/acts_as_taggable_on_engines/dirty"
 
-require "acts_as_taggable_on/tagger"
-require "acts_as_taggable_on/tag"
-require "acts_as_taggable_on/tag_list"
-require "acts_as_taggable_on/tags_helper"
-require "acts_as_taggable_on/tagging"
+require "acts_as_taggable_on_engines/tagger"
+require "acts_as_taggable_on_engines/tag"
+require "acts_as_taggable_on_engines/tag_list"
+require "acts_as_taggable_on_engines/tags_helper"
+require "acts_as_taggable_on_engines/tagging"
 
 $LOAD_PATH.shift
 
 
 if defined?(ActiveRecord::Base)
-  ActiveRecord::Base.extend ActsAsTaggableOn::Compatibility
-  ActiveRecord::Base.extend ActsAsTaggableOn::Taggable
-  ActiveRecord::Base.send :include, ActsAsTaggableOn::Tagger
+  ActiveRecord::Base.extend ActsAsTaggableOnEngines::Compatibility
+  ActiveRecord::Base.extend ActsAsTaggableOnEngines::Taggable
+  ActiveRecord::Base.send :include, ActsAsTaggableOnEngines::Tagger
 end
 
 if defined?(ActionView::Base)
-  ActionView::Base.send :include, ActsAsTaggableOn::TagsHelper
+  ActionView::Base.send :include, ActsAsTaggableOnEngines::TagsHelper
 end
 
