@@ -53,6 +53,6 @@ class NonStandardIdTaggableModel < ActiveRecord::Base
 end
 
 class OrderedTaggableModel < ActiveRecord::Base
-  acts_as_ordered_taggable
-  acts_as_ordered_taggable_on :colours
+  acts_as_ordered_taggable_on_engines
+  acts_as_ordered_taggable_on_engines :colours
 end

@@ -11,7 +11,7 @@ module ActsAsTaggableOnEngines
     #   class Book < ActiveRecord::Base
     #     acts_as_taggable
     #   end
-    def acts_as_taggable
+    def acts_as_taggable_on_engines
       acts_as_taggable_on_engines :tags
     end
 
@@ -22,7 +22,7 @@ module ActsAsTaggableOnEngines
     #   class Book < ActiveRecord::Base
     #     acts_as_ordered_taggable
     #   end
-    def acts_as_ordered_taggable
+    def acts_as_ordered_taggable_on_engines
       acts_as_ordered_taggable_on :tags
     end
 
@@ -50,7 +50,7 @@ module ActsAsTaggableOnEngines
     #   class User < ActiveRecord::Base
     #     acts_as_ordered_taggable_on :languages, :skills
     #   end
-    def acts_as_ordered_taggable_on(*tag_types)
+    def acts_as_ordered_taggable_on_engines(*tag_types)
       taggable_on(true, tag_types)
     end
 
@@ -67,7 +67,7 @@ module ActsAsTaggableOnEngines
       # NB: method overridden in core module in order to create tag type
       #     associations and methods after this logic has executed
       #
-      def taggable_on(preserve_tag_order, *tag_types)
+      def taggable_on_engines(preserve_tag_order, *tag_types)
         tag_types = tag_types.to_a.flatten.compact.map(&:to_sym)
 
         if taggable?

@@ -13,7 +13,7 @@ module ActsAsTaggableOnEngines
       #   class User < ActiveRecord::Base
       #     acts_as_tagger
       #   end
-      def acts_as_tagger(opts={})
+      def acts_as_tagger_on_engines(opts={})
         class_eval do
           has_many_with_compatibility :owned_taggings,
             opts.merge(
@@ -49,7 +49,7 @@ module ActsAsTaggableOnEngines
       #
       # Example:
       #   @user.tag(@photo, :with => "paris, normandy", :on => :locations)
-      def tag(taggable, opts={})
+      def tag_on_engines(taggable, opts={})
         opts.reverse_merge!(:force => true)
         skip_save = opts.delete(:skip_save)
         return false unless taggable.respond_to?(:is_taggable?) && taggable.is_taggable?

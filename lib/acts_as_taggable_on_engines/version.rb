@@ -1,4 +1,4 @@
 module ActsAsTaggableOnEngines
-  VERSION = '2.4.2.pre'
+  VERSION = '2.4.3.pre'
 end
 
